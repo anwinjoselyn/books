@@ -1,7 +1,9 @@
 import Link from 'next/link';
+import useRequireAuth from '../auth/useRequireAuth';
 
 export default function Header() {
-
+  const auth = useRequireAuth();
+  
   return (
     <div className="py-3 bg-primary-text-color flex flex-row justify-between content-center items-center h-14 sticky top-0">
       <Link href="/" passHref>
@@ -15,7 +17,7 @@ export default function Header() {
             Dashboard
           </span>
         </Link> */}
-        {/* {auth.user ? (
+        {auth.user ? (
           <>
             <span className="mr-3 text-bg-other">
               {auth.user.name}
@@ -27,7 +29,7 @@ export default function Header() {
               </span>
             </Link>
           </>
-        ) : null} */}
+        ) : null}
       </div>
     </div>
   );

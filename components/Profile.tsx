@@ -1,6 +1,6 @@
 import Image from 'next/Image';
 
-import useRequireAuth from '../hooks/useRequireAuth';
+import useRequireAuth from '../auth/useRequireAuth';
 
 import { CustomButton } from '.';
 

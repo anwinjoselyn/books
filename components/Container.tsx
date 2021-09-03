@@ -5,7 +5,10 @@ import Sidebar from './Sidebar';
 // import { Loading } from './';
 import LoginForm from './forms/LoginForm';
 
+import useRequireAuth from '../auth/useRequireAuth';
+
 export default function Container({ children }: { children: React.ReactNode }) {
+  const auth = useRequireAuth();
 
   return (
     <div className="flex bg-bg-light">
@@ -27,7 +30,7 @@ export default function Container({ children }: { children: React.ReactNode }) {
       </div>
       <div className="w-5/6 ...">
         <Header />
-        <div className="p-3">{children}</div>
+        <div className="p-3">{auth.user ? children : <LoginForm />}</div>
       </div>
     </div>
   );

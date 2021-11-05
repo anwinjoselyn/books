@@ -5,11 +5,12 @@
 /* purgecss end ignore */
 
 :root {
-  --blue-light: #b5dfff;
+  --blue-light: #23C9FF;
   --blue-DEFAULT: #4aa7ed;
-  --blue-dark: #147bc9;
+  --blue-dark: #00FFE7;
   --red-DEFAULT: #ff2929;
-  --orange-DEFAULT: #f57636;
+  --orange-DEFAULT: #FF4E00;
+  --orange-light: #FE621D;
   --yellow-DEFAULT: #ffff0d;
   --green-light: #bfffda;
   --green-DEFAULT: #15c25e;
@@ -27,6 +28,8 @@
   --gray-DEFAULT: #c0ccda;
   --gray-light: #e0e6ed;
   --gray-lightest: #f9fafc;
+  --theme-orange-1: #FF4E00;
+  --theme-orange-2: #FE621D;
 }
 
 /* @tailwind base;

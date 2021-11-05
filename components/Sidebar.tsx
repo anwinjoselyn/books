@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import { sidebarValues } from '../utils/defaultValues';
 
-export default function Sidebar() {
+export default function Sidebar({ toggleSidebar, minified }: any) {
   const router = useRouter();
   const { pathname } = router;
   let searchTerms = pathname.split('/');
@@ -57,11 +57,15 @@ export default function Sidebar() {
       router.replace(route);
     }
   };
-
+  console.log('minified', minified);
   return (
-    <div className="bg-primary-text-color h-screen sticky top-0">
-      <div className="py-3 border-b border-secondary-text-color h-14 px-4 text-lg text-center text-orange">
-        Take Notes
+    <div className="bg-bg-dark h-screen sticky top-0">
+      <div
+        className="py-3 border-b border-secondary-text-color h-14 px-4 text-lg text-center text-orange cursor-pointer"
+        role="presentation"
+        onClick={toggleSidebar}
+      >
+        {minified ? 'HF' : 'HiFaDD'}
       </div>
       <div className="">
         {sidebarValues.map((menu: any) => {
@@ -74,7 +78,7 @@ export default function Sidebar() {
             if (menu.children.length > 0) {
               menuClass = 'bg-secondary-text-color text-bg-light';
             } else {
-              menuClass = 'bg-bg-light text-primary-text-color';
+              menuClass = 'bg-bg-light text-orange-light';
             }
           }
           return (
@@ -89,11 +93,19 @@ export default function Sidebar() {
               }
               role="presentation"
             >
-              <div className="text-lg flex items-center p-4 border-b border-secondary-text-color">
-                <span className="material-icons mr-3 text-base">
+              <div
+                className={`text-lg flex items-center border-b border-secondary-text-color ${
+                  minified ? 'justify-center p-2' : 'p-4'
+                }`}
+              >
+                <span
+                  className={`material-icons ${
+                    minified ? 'text-2xl' : 'mr-3 text-base'
+                  }`}
+                >
                   {menu.icon}
                 </span>{' '}
-                {menu.title}
+                {!minified && menu.title}
               </div>
               {state &&
               menu.key === state.openMenuKey &&
@@ -110,12 +122,18 @@ export default function Sidebar() {
                     return (
                       <Link key={submenu.key} href={submenu.route} passHref>
                         <div
-                          className={`text-lg flex items-center py-4 pl-8 border-t border-primary-text-color ${subMenuClass}`}
+                          className={`text-lg flex items-center py-4 pl-8 border-t border-primary-text-color ${subMenuClass} ${
+                            minified ? 'text-2xl' : ''
+                          }`}
                         >
-                          <span className="material-icons mr-3 text-base">
+                          <span
+                            className={`material-icons mr-3 ${
+                              minified ? 'text-5xl text-center' : 'text-base'
+                            }`}
+                          >
                             {submenu.icon}
                           </span>{' '}
-                          {submenu.title}
+                          a{!minified && submenu.title}
                         </div>
                       </Link>
                     );

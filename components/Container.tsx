@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
 
 import Header from './Header';
@@ -9,6 +10,11 @@ import useRequireAuth from '../auth/useRequireAuth';
 
 export default function Container({ children }: { children: React.ReactNode }) {
   const auth = useRequireAuth();
+  const [state, setState] = useState({ minified: true });
+
+  const toggleSidebar = () => {
+    setState({ minified: !state.minified });
+  };
 
   return (
     <div className="flex bg-bg-light">
@@ -25,10 +31,10 @@ export default function Container({ children }: { children: React.ReactNode }) {
           rel="stylesheet"
         ></link>
       </Head>
-      <div className="w-1/6">
-        <Sidebar />
+      <div className={state.minified ? 'w-12' : 'w-1/6'}>
+        <Sidebar toggleSidebar={toggleSidebar} minified={state.minified} />
       </div>
-      <div className="w-5/6 ...">
+      <div className={state.minified ? 'w-full' : 'w-5/6'}>
         <Header />
         <div className="p-3">{auth.user ? children : <LoginForm />}</div>
       </div>

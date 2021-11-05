@@ -12,30 +12,33 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       blue: {
-        light: '#B5DFFF',
-        DEFAULT: '#4AA7ED',
-        dark: '#147BC9',
+        light: '#23C9FF',
+        DEFAULT: '#4DC1E5',
+        dark: '#005091',
       },
       red: {
-        DEFAULT: '#FF2929',
+        DEFAULT: '#ED474A',
+        light: '#FF4D40'
       },
       orange: {
         DEFAULT: '#F57636',
+        light: '#FE621D'
       },
       yellow: {
-        DEFAULT: '#FFFF0D',
+        DEFAULT: '#FFC759',
+        light: '#F5EE9E'
       },
       green: {
-        light: '#BFFFDA',
-        DEFAULT: '#15C25E',
-        dark: '#209652',
+        light: '#56E39F',
+        DEFAULT: '#56E39F',
+        dark: '#0F5733',
       },
-      'primary-text-color': '#00212B',
-      'secondary-text-color': '#014559',
-      'muted-text-color': '#0280A6',
-      'bg-dark': '#AECAD4',
-      'bg-other': '#139ED1',
-      'bg-light': '#F7FDFF',
+      'primary-text-color': '#404040',
+      'secondary-text-color': '#6A7880',
+      'muted-text-color': '#90A3AD',
+      'bg-dark': '#2E3633',
+      'bg-other': '#F0F5F6',
+      'bg-light': '#F0F5F3',
       'border-color': '#E6EDF0',
       'border-color-dark': '#AEBCC2',
       gray: {
